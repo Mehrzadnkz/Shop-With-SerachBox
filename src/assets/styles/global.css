@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* Font */
-@import url("https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900");
+/* @import url("https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900"); */
 
 body::before {
   content: "";
@@ -9,7 +9,7 @@ body::before {
   inset: 0;
   z-index: -1;
   opacity: 0.05;
-  background: url("./../images/logo.png");
+  background: url("logos/Site-Logo.PNG");
   background-color: rgba(255, 255, 255, 1);
   background-size: 300px;
   transform: rotate(-8deg) scale(1.35);
@@ -27,8 +27,9 @@ body::before {
 }
 
 body {
-  font-family: "Roboto-Condensed", "Charm", cursive, sans-serif;
-  font-weight: 700;
+  /* background-color: rgba(0, 0, 0, 0.2); */
+  font-weight: 550;
+  box-sizing: border-box;
 }
 
 #loading {
