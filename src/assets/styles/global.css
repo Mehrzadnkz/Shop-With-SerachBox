@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+/* Font */
+@import url("https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900");
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.05;
+  background: url("./../images/logo.png");
+  background-color: rgba(255, 255, 255, 1);
+  background-size: 300px;
+  transform: rotate(-8deg) scale(1.35);
+  animation: slide 30s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes slide {
+  from {
+    background-position: 100vh 0;
+  }
+  to {
+    background-position: 20% 100vh;
+  }
+}
+
+body {
+  font-family: "Roboto-Condensed", "Charm", cursive, sans-serif;
+  font-weight: 700;
+}
+
+#loading {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+#loading.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
