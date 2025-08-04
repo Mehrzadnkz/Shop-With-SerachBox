@@ -10,10 +10,10 @@
 
 # Commit's Reason
 
-- 1 Add Defualt File
-- 2 Add { Loading, vite.config.js } And Fix Tailwindcss
-- 3 Fix Header (09:00 PM)
-- 4
+- 1 Add Defualt File And Install { Vite, Tailwindcss, Tailwindcss@vite, Axios } Package's
+- 2 Add { Loading, vite.config.js file } And Fix Tailwindcss
+- 3 Add And Fix Header With { Respansive, SearchBox } (09:00 PM | 3 August 2025)
+- 4 Exit The Project (11:30 PM | 3 August 2025)
 - 5
 - 6
 - 7
@@ -26,3 +26,7 @@
 # Number Of Pushes And Changes
 
 - 1 Add Defualt File
+
+# Questions and mistakes
+
+- Use auth folder Instead Of utils
