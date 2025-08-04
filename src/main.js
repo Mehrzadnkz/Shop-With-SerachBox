@@ -36,7 +36,7 @@ document.querySelector('header').innerHTML = `
     <div id="bottom-header" class="w-full h-1/2 flex justify-around items-center border-b border-blue-900">
         <a href="Clothes" id="Clothes" class="bg-cyan-400 px-3.5 py-1.5 rounded-lg hover:bg-cyan-500 cursor-pointer">Clothes</a>
         <a href="Men's-Clothing" id="Men Clothes" class="bg-cyan-400 px-3.5 py-1.5 rounded-lg hover:bg-cyan-500 cursor-pointer">Men's Clothes</a>
-        <a href="Women's-Clothes" id="Women Clothes" class="bg-cyan-400 px-3.5 py-1.5 rounded-lg hover:bg-cyan-500 cursor-pointer">Women's Clothes</a>
+        <a href="Women's-Clothing" id="Women Clothes" class="bg-cyan-400 px-3.5 py-1.5 rounded-lg hover:bg-cyan-500 cursor-pointer">Women's Clothes</a>
         <a href="Jewelery" id="Jewelery" class="bg-cyan-400 px-3.5 py-1.5 rounded-lg hover:bg-cyan-500 cursor-pointer">Jewelery</a>
         <a href="Electronic" id="Electronics" class="bg-cyan-400 px-3.5 py-1.5 rounded-lg hover:bg-cyan-500 cursor-pointer">Electronics</a>
     </div>`;
@@ -59,7 +59,7 @@ document.querySelector('main').innerHTML = `
     <button id="Sort-Button" class="border border-gray-400 rounded-md hover:bg-gray-200 px-1 py-0.5">Confirm</button>
   </div>
 </div>
-<div class="border border-green-600" id="Product_List"></div>`;
+<div class="border border-green-600 grid grid-cols-3 gap-3" id="Product_List"></div>`;
 const Sort = document.getElementById('Sorted')
 const Sort_Selected = Sort.options[Sort.selectedIndex].value
 console.log(Sort_Selected);
@@ -84,6 +84,11 @@ function Change_SearchBox_Icon() {
 // If Clicked Button Start Function Change_SearchBox_Icon
 document.getElementById('SearchBox-Icon').addEventListener('click', Change_SearchBox_Icon)
 
+function FormatText(Text) {
+  return Text.toLowerCase().replace(/-/g, ' ');
+}
+const Page = FormatText(window.location.pathname.split('/').pop().split('.')[0]);
+
 function Show_Products(Element) {
   const API_URL = import.meta.env.VITE_Product_API_URL;
   axios.get(API_URL, {
@@ -91,19 +96,33 @@ function Show_Products(Element) {
   })
 
     .then(response => {
-      const Products = response.data.map(product => `
-      <div class="border border-amber-500 p-2 my-2">
-      <img src="${product.image}" alt="${product.title}" class="size-12" />
-      <!-- <h1>ID : ${product.id}</h1> -->
-      <h1>Title : ${product.title}</h1>
-      <h2>Price : ${product.price}</h2>
-      <h3 class="w-auto">Description : ${product.description}</h3>
-      <!-- <h4>Category : ${product.category}</h4> -->
-      </div>
-    `);
+      const Products = response.data.map(product => {
+        console.log(Page);
 
-      console.log(response.data);
-      document.querySelector(Element).innerHTML = `${Products.join('')}`;
+        if (Page == 'clothes') {
+          if (product.category === "men's clothing" && product.category == "women's clothing") {
+            return `
+            <div class="border border-amber-500 p-2 my-2">
+              <img src="${product.image}" alt="${product.title}" class="size-12" />
+              <h1>Title : ${product.title}</h1>
+              <h2>Price : ${product.price}</h2>
+              <h3 class="w-auto">Description : ${product.description}</h3>
+            </div>`;
+          }
+        }
+        else if (Page === product.category) {
+          return `
+          <div class="border border-amber-500 p-2 my-2">
+            <img src="${product.image}" alt="${product.title}" class="size-12" />
+            <h1>Title : ${product.title}</h1>
+            <h2>Price : ${product.price}</h2>
+            <h3 class="w-auto">Description : ${product.description}</h3>
+          </div>
+          `;
+        }
+        return '';
+      }).join('');
+      Element.innerHTML = Products;
     })
     .catch(error => {
       console.log(error);
