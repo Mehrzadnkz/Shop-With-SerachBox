@@ -1,6 +1,5 @@
-import axios from 'axios';
 import './assets/styles/global.css';
-import { FormatText, Change_SearchBox_Icon } from './functions';
+import { FormatText, Change_SearchBox_Icon, getUserData } from './functions';
 
 // تنظیمات اولیه
 let number_of_product_in_page = 3;
@@ -39,11 +38,11 @@ document.querySelector('header').innerHTML = `
     </div>
   </div>
   <div id="bottom-header" class="w-full h-1/2 flex justify-around items-center border-b border-blue-900 max-md:hidden">
-    <a href="Clothes" id="Clothes" class="bg-cyan-400 px-3.5 py-1.5 rounded-lg hover:bg-cyan-500 cursor-pointer">Clothes</a>
-    <a href="Men's-Clothing" id="Men Clothes" class="bg-cyan-400 px-3.5 py-1.5 rounded-lg hover:bg-cyan-500 cursor-pointer">Men's Clothes</a>
-    <a href="Women's-Clothing" id="Women Clothes" class="bg-cyan-400 px-3.5 py-1.5 rounded-lg hover:bg-cyan-500 cursor-pointer">Women's Clothes</a>
-    <a href="Jewelery" id="Jewelery" class="bg-cyan-400 px-3.5 py-1.5 rounded-lg hover:bg-cyan-500 cursor-pointer">Jewelery</a>
-    <a href="Electronics" id="Electronics" class="bg-cyan-400 px-3.5 py-1.5 rounded-lg hover:bg-cyan-500 cursor-pointer">Electronics</a>
+    <a href="id" id="id">id</a>
+    <a href="username" id="Username">Username</a>
+    <a href="role" id="Role">Role</a>
+    <a href="active" id="Active">Active</a>
+    <a href="mail" id="mail">mail</a>
   </div>`;
 
 
@@ -69,3 +68,5 @@ document.querySelector('main').innerHTML = `
     <div class="border border-green-600 grid grid-cols-${number_of_product_in_page} gap-3" id="Product_List"></div>`;
 
 document.getElementById('SearchBox-Icon')?.addEventListener('click', Change_SearchBox_Icon);
+
+getUserData()
