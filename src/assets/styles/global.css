@@ -44,3 +44,15 @@ body {
 #bottom-header a {
   @apply bg-cyan-400 px-3.5 py-1.5 rounded-lg hover:bg-cyan-500 cursor-pointer;
 }
+
+.user-box {
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+.user-box:hover {
+  transform: scale(1.065);
+}
+
+.user-box h3 {
+  @apply flex justify-center items-center;
+}

@@ -17,7 +17,7 @@
 - 5 Bug In Change Product Number In Page (4:20 PM | 4 August 2025)
 - 6 Fixed The Page And Write Again
 - 7 Add interseptor And Authentication With Better Name
-- 8
+- 8 Fix Show User (12:45 PM | 5 August 2025)
 - 9
 - 10
 - 11

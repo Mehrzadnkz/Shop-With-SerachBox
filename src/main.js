@@ -1,18 +1,22 @@
+// main.js
 import './assets/styles/global.css';
-import { FormatText, Change_SearchBox_Icon, getUserData } from './functions';
+import { formatText, changeSearchBoxIcon, getUserData } from './functions';
 
 // Default
-export let Page = FormatText(window.location.pathname.split('/').pop().split('.')[0]);
+export const page = formatText(window.location.pathname.split('/').pop().split('.')[0]);
 
 // Loading
 window.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
-    document.getElementById('loading')?.classList.add('hidden');
+    const loadingElement = document.getElementById('loading');
+    if (loadingElement) {
+      loadingElement.classList.add('hidden');
+    }
   }, 2500);
 });
 
 // Header
-document.querySelector('header').innerHTML = `
+const headerHTML = `
   <div id="top-header" class="w-full h-1/2 flex justify-between items-center px-4">
     <div class="hidden max-sm:flex justify-center items-center">
       <span id="List-Button">☰</span>
@@ -24,7 +28,7 @@ document.querySelector('header').innerHTML = `
     </div>
     <div class="max-sm:hidden flex justify-center items-center flex-row gap-2">
       <input type="search" name="Search Box" placeholder="Search Box" id="search-box-input" class="border rounded-md px-3 py-1">
-      <button id="SearchBox-Icon">
+      <button id="SearchBox-Button">
         <img src="logos/SearchBox-Icon.PNG" alt="Search Box Logo" class="size-7" />
       </button>
     </div>
@@ -39,13 +43,15 @@ document.querySelector('header').innerHTML = `
     <a href="id" id="id">id</a>
     <a href="username" id="Username">Username</a>
     <a href="role" id="Role">Role</a>
-    <a href="active" id="Active">Active</a>
-    <a href="mail" id="mail">mail</a>
+    <a href="email" id="email">email</a>
   </div>`;
 
-document.querySelector('main').innerHTML = `
-    <div class="grid grid-cols-3 gap-3" id="Users-List"></div>`;
+document.querySelector('header').innerHTML = headerHTML;
 
-document.getElementById('SearchBox-Icon')?.addEventListener('click', Change_SearchBox_Icon);
+document.querySelector('main').innerHTML = `
+    <div class="grid grid-cols-5 gap-3 p-5 max-xl:grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2" id="Users-List"></div>
+    <div class="hidden" id="Search-">No Results Found</div>`;
+
+document.getElementById('SearchBox-Button')?.addEventListener('click', changeSearchBoxIcon);
 
 getUserData('#Users-List');
