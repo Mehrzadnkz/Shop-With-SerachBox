@@ -16,7 +16,7 @@
 - 4 Exit The Project (11:30 PM | 3 August 2025)
 - 5 Bug In Change Product Number In Page (4:20 PM | 4 August 2025)
 - 6 Fixed The Page And Write Again
-- 7
+- 7 Add interseptor And Authentication With Better Name
 - 8
 - 9
 - 10
