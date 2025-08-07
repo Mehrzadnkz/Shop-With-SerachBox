@@ -6,9 +6,10 @@
 
 - Vite
 - Tailwindcss
+- Tailwind
 - Axios
 
-# Commit's Reason
+# Reason
 
 - 1 Add Defualt File And Install { Vite, Tailwindcss, Tailwindcss@vite, Axios } Package's
 - 2 Add { Loading, vite.config.js file } And Fix Tailwindcss
@@ -19,13 +20,7 @@
 - 7 Add interseptor And Authentication With Better Name
 - 8 Fix Show User (12:45 PM | 5 August 2025)
 - 9 Show User With Sort Filter (ID, Username, Role, Email) (11:10 PM | 5 August 2025)
-- 10
-- 11
-- 12
-
-# Number Of Pushes And Changes
-
-- 1 Add Defualt File
+- 10 Fix Serach Box And Sort Serach By Category ( Use Deep Seek For This Piece )
 
 # Questions and mistakes
 
