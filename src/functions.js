@@ -83,3 +83,67 @@ export const getUserData = async (element) => {
         console.error('Error in request:', error);
     }
 };
+
+export function Filter_Search() {
+    // Required Variables
+    const searchInput = document.getElementById('search-box-input').value;
+    const Filter_By = null;
+
+    if (!searchInput) {
+        console.log('Search Box Input Is Empty');
+        return;
+    }
+    const SuggestedFilters = ['id', 'username', 'role', 'email'];
+    const suggestedContainer = document.createElement('div');
+    suggestedContainer.classList.add('suggested-filters');
+
+    SuggestedFilters.forEach(filter => {
+        const filterElement = document.createElement('div');
+        filterElement.classList.add('filter-item');
+        filterElement.textContent = filter;
+        suggestedContainer.appendChild(filterElement);
+    });
+
+    document.body.appendChild(suggestedContainer);
+
+    // Give Client Suggestion Filter Clicked
+    suggestedContainer.addEventListener('click', (event) => {
+        if (event.target.classList.contains('filter-item')) {
+            const selectedFilter = event.target.textContent;
+            Filter_By = selectedFilter;
+            suggestedContainer.remove();
+        } // With GPT
+
+        if (Filter_By == "id") {
+            window.location.href = `search?id=${searchInput}`
+
+        }
+        else if (Filter_By == "username") {
+            window.location.href = `search?username=${searchInput}`
+
+        }
+        else if (Filter_By == "role") {
+            window.location.href = `search?role=${searchInput}`
+
+        }
+        else if (Filter_By == "email") {
+            window.location.href = `search?email=${searchInput}`
+        }
+
+        const User_Data = document.querySelectorAll('.user-box');
+        User_Data.map(user => {
+            if (Filter_By == "id") {
+
+            }
+            else if (Filter_By == "username") {
+
+            }
+            else if (Filter_By == "role") {
+
+            }
+            else if (Filter_By == "email") {
+
+            }
+        });
+    });
+}

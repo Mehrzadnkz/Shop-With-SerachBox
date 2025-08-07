@@ -1,6 +1,6 @@
 // main.js
 import './assets/styles/global.css';
-import { formatText, changeSearchBoxIcon, getUserData } from './functions';
+import { formatText, changeSearchBoxIcon, getUserData, Filter_Search } from './functions';
 
 // Default
 export const page = formatText(window.location.pathname.split('/').pop().split('.')[0]);
@@ -13,6 +13,7 @@ window.addEventListener("DOMContentLoaded", () => {
       loadingElement.classList.add('hidden');
     }
   }, 2500);
+
 });
 
 // Header
@@ -26,7 +27,7 @@ const headerHTML = `
       <img src="logos/Site-Logo.PNG" alt="Shop Logo" class="size-12" />
       <h2>Shop Name</h2>
     </div>
-    <div class="max-sm:hidden flex justify-center items-center flex-row gap-2">
+    <div class="max-sm:hidden flex justify-center items-center flex-row gap-2 relative"> <!-- اضافه کردن کلاس relative -->
       <input type="search" name="Search Box" placeholder="Search Box" id="search-box-input" class="border rounded-md px-3 py-1">
       <button id="SearchBox-Button">
         <img src="logos/SearchBox-Icon.PNG" alt="Search Box Logo" class="size-7" />
@@ -49,9 +50,9 @@ const headerHTML = `
 document.querySelector('header').innerHTML = headerHTML;
 
 document.querySelector('main').innerHTML = `
-    <div class="grid grid-cols-5 gap-3 p-5 max-xl:grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2" id="Users-List"></div>
-    <div class="hidden" id="Search-">No Results Found</div>`;
+    <div class="grid grid-cols-5 gap-3 p-5 max-xl:grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2" id="Users-List"></div>`;
 
+document.getElementById('SearchBox-Button')?.addEventListener('click', Filter_Search);
 document.getElementById('SearchBox-Button')?.addEventListener('click', changeSearchBoxIcon);
 
 getUserData('#Users-List');
