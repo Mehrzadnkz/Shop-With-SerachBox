@@ -1,7 +1,5 @@
+/* global.css */
 @import "tailwindcss";
-
-/* Font */
-/* @import url("https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900"); */
 
 body::before {
   content: "";
@@ -26,12 +24,6 @@ body::before {
   }
 }
 
-body {
-  /* background-color: rgba(0, 0, 0, 0.2); */
-  font-weight: 550;
-  box-sizing: border-box;
-}
-
 #loading {
   opacity: 1;
   transition: opacity 0.5s ease;
@@ -41,47 +33,12 @@ body {
   pointer-events: none;
 }
 
-#bottom-header a {
-  @apply bg-cyan-400 px-3.5 py-1.5 rounded-lg hover:bg-cyan-500 cursor-pointer;
-}
-
 .user-box {
   cursor: pointer;
-  transition: transform 0.5s ease;
+  transition: all 0.3s ease;
 }
 .user-box:hover {
-  transform: scale(1.065);
-}
-
-.user-box h3 {
-  @apply flex justify-center items-center;
-}
-
-#suggestions-box {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  max-height: 200px;
-  overflow-y: auto;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-}
-
-#suggestions-box div {
-  padding: 8px 12px;
-  cursor: pointer;
-  border-bottom: 1px solid #eee;
-}
-
-#suggestions-box div:last-child {
-  border-bottom: none;
-}
-
-#suggestions-box div:hover {
-  background: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
